@@ -626,39 +626,63 @@ window.addEventListener("load", function () {
   const loader = document.getElementById("loader");
   loader.classList.add("hidden");
 });
-
-// Navigate to profile page
-document.getElementById("profile-btn").addEventListener("click", function () {
-  window.location.href = "./profile.html";
-});
-
-// Sample structure of audiobooks data stored in localStorage
-const audiobooks = [
-  { id: 1, title: "Pale Blue Dot", progress: 45, timeListened: "1 hr 30 min" },
-  { id: 2, title: "Sapiens", progress: 80, timeListened: "3 hrs" },
-];
-
-// Populate the bookmarks and progress
-document.addEventListener("DOMContentLoaded", () => {
-  const bookmarkedList = document.getElementById("bookmarked-list");
-  const progressTracking = document.getElementById("progress-tracking");
-
-  audiobooks.forEach((book) => {
-    // Add bookmarked books
-    const listItem = document.createElement("li");
-    listItem.textContent = book.title;
-    bookmarkedList.appendChild(listItem);
-
-    // Add live tracking
-    const progressItem = document.createElement("div");
-    progressItem.innerHTML = `
-      <h3>${book.title}</h3>
-      <p>Progress: ${book.progress}%</p>
-      <p>Time Listened: ${book.timeListened}</p>
-      <div class="progress-bar bg-gray-700">
-        <div class="progress-bar bg-green-500" style="width: ${book.progress}%;"></div>
-      </div>
-    `;
-    progressTracking.appendChild(progressItem);
+// Profile picture change handler
+const uploadPicBtn = document.getElementById("upload-pic");
+if (uploadPicBtn) {
+  uploadPicBtn.addEventListener("click", () => {
+    alert("Profile picture change feature is coming soon!");
+    // You can add a file upload input in the future.
   });
+}
+
+// Name change functionality
+const editNameBtn = document.getElementById("edit-name");
+if (editNameBtn) {
+  editNameBtn.addEventListener("click", () => {
+    const newName = prompt("Enter your new name:");
+    if (newName) {
+      document.querySelector(
+        ".profile-section p"
+      ).innerText = `Name: ${newName}`;
+    }
+  });
+}
+
+// Friend card expand/collapse
+// Friend cards toggle animation
+document.querySelectorAll(".friend-card").forEach((card) => {
+  card.addEventListener("click", function () {
+    const targetId = this.getAttribute("data-target");
+    const content = document.querySelector(targetId);
+    const isCollapsed = content.classList.contains("expanded");
+
+    // Toggle the card content
+    if (isCollapsed) {
+      content.classList.remove("expanded");
+      card.classList.add("collapsed");
+    } else {
+      content.classList.add("expanded");
+      card.classList.remove("collapsed");
+    }
+  });
+});
+// features typing effect
+document.addEventListener("DOMContentLoaded", function () {
+  if (typeof Typed !== "undefined") {
+    // Initialize the typing effect for features using Typed.js
+    let typed = new Typed(".auto-input", {
+      strings: [
+        "Play/Pause",
+        "Skip Chapters",
+        "Change Speed",
+        "Change Volume",
+        "Change Theme",
+      ],
+      typeSpeed: 100, // Typing speed
+      backSpeed: 100, // Backspacing speed
+      loop: true, // Loop through the strings indefinitely
+    });
+  } else {
+    console.error("Typed.js not found. Make sure it's included correctly.");
+  }
 });

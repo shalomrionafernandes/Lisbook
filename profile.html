@@ -123,7 +123,91 @@
               id="theme-toggle"
               class="text-gray-300 hover:text-green-500"
             >
+              <!-- Sun Icon (for dark theme) -->
               <svg
+                id="sun-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="12"
+                  y1="1"
+                  x2="12"
+                  y2="4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="12"
+                  y1="20"
+                  x2="12"
+                  y2="23"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="4.22"
+                  y1="4.22"
+                  x2="6.34"
+                  y2="6.34"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="17.66"
+                  y1="17.66"
+                  x2="19.78"
+                  y2="19.78"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="1"
+                  y1="12"
+                  x2="4"
+                  y2="12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="20"
+                  y1="12"
+                  x2="23"
+                  y2="12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="4.22"
+                  y1="19.78"
+                  x2="6.34"
+                  y2="17.66"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="17.66"
+                  y1="6.34"
+                  x2="19.78"
+                  y2="4.22"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+              </svg>
+
+              <!-- Moon Icon (for light theme) -->
+              <svg
+                id="moon-icon"
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
                 fill="none"
@@ -138,12 +222,13 @@
                 />
               </svg>
             </button>
-            <button
-              id="profile-btn"
+
+            <a
+              href="./profile.html"
               class="text-gray-300 hover:text-green-500 me-4"
             >
               <i class="bi bi-person-circle h-6 w-6"></i>
-            </button>
+            </a>
           </div>
 
           <!-- Mobile Menu Toggle Button -->
@@ -170,32 +255,210 @@
         </div>
       </nav>
     </header>
+    <div class="profile-and-friends row">
+      <!-- Profile Section -->
+      <div class="col-md-4">
+        <section class="profile-section p-5 text-center">
+          <h1 class="text-3xl font-bold mb-4">Your Profile</h1>
+          <img
+            src="https://avatars.githubusercontent.com/u/90936436?v=4"
+            alt="Profile Icon"
+            class="rounded-full w-24 h-24 mx-auto mb-4"
+            id="profile-pic"
+          />
+          <p class="text-lg">
+            Name: Najam Ali Abbas <i class="bi bi-pencil" id="edit-name"></i>
+          </p>
+          <p class="text-lg">
+            Audiobooks Bookmarked: <span id="audiobook-count">5</span>
+          </p>
+          <p class="text-lg">
+            Total Time Listened: <span id="total-time">20 hrs</span>
+          </p>
+          <button id="upload-pic" class="btn btn-primary">
+            Change Picture
+          </button>
+        </section>
+      </div>
 
-    <main class="container mx-auto my-8">
-      <section class="profile-section p-5 text-center">
-        <h1 class="text-3xl font-bold mb-4">Your Profile</h1>
-        <img
-          src="./Images/default-profile.png"
-          alt="Profile Icon"
-          class="rounded-full w-24 h-24 mx-auto mb-4"
-        />
-        <p class="text-lg">Name: John Doe</p>
-        <p class="text-lg">Audiobooks Bookmarked: 5</p>
-        <p class="text-lg">Total Time Listened: 20 hrs</p>
-      </section>
+      <!-- Friends Section -->
+      <div class="col-md-8">
+        <section class="friends-section p-5">
+          <h2 class="text-2xl font-bold mb-4">Friends</h2>
+          <div class="row" id="friends-list">
+            <!-- Friend Cards -->
 
-      <!-- Bookmarked Audiobooks -->
-      <section class="p-5">
-        <h2 class="text-2xl font-bold mb-4">Your Bookmarked Audiobooks</h2>
-        <ul id="bookmarked-list" class="list-none text-left space-y-4"></ul>
-      </section>
+            <!-- Eric Kay -->
+            <div class="col-sm-4 mb-4">
+              <div class="friend-card collapsed" data-target="#friend1">
+                <img
+                  src="https://avatars.githubusercontent.com/u/137875228?v=4"
+                  class="card-img-top rounded-circle mx-auto"
+                  style="width: 60px; height: 60px"
+                  alt="Eric Kay"
+                />
+                <h5 class="card-title mt-3">Eric Kay</h5>
+              </div>
+              <div class="friend-content" id="friend1">
+                <a
+                  href="https://github.com/YakeDev"
+                  target="_blank"
+                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                  >GitHub Profile</a
+                >
+              </div>
+            </div>
 
-      <!-- Live Audiobook Tracking -->
-      <section class="p-5">
-        <h2 class="text-2xl font-bold mb-4">Live Audiobook Progress</h2>
-        <div id="progress-tracking" class="space-y-4"></div>
-      </section>
-    </main>
+            <!-- Varad Sunil Jadhav -->
+            <div class="col-sm-4 mb-4">
+              <div class="friend-card collapsed" data-target="#friend2">
+                <img
+                  src="https://avatars.githubusercontent.com/u/96735054?v=4"
+                  class="card-img-top rounded-circle mx-auto"
+                  style="width: 60px; height: 60px"
+                  alt="Varad Sunil Jadhav"
+                />
+                <h5 class="card-title mt-3">Varad Sunil Jadhav</h5>
+              </div>
+              <div class="friend-content" id="friend2">
+                <a
+                  href="https://github.com/VaradJadhav"
+                  target="_blank"
+                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                  >GitHub Profile</a
+                >
+              </div>
+            </div>
+
+            <!-- Aditya Bavadekar -->
+            <div class="col-sm-4 mb-4">
+              <div class="friend-card collapsed" data-target="#friend3">
+                <img
+                  src="https://avatars.githubusercontent.com/u/64344960?v=4"
+                  class="card-img-top rounded-circle mx-auto"
+                  style="width: 60px; height: 60px"
+                  alt="Aditya Bavadekar"
+                />
+                <h5 class="card-title mt-3">Aditya Bavadekar</h5>
+              </div>
+              <div class="friend-content" id="friend3">
+                <a
+                  href="https://github.com/AdityaBavadekar"
+                  target="_blank"
+                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                  >GitHub Profile</a
+                >
+              </div>
+            </div>
+
+            <!-- Siddharth Khandelwal -->
+            <div class="col-sm-4 mb-4">
+              <div class="friend-card collapsed" data-target="#friend4">
+                <img
+                  src="https://avatars.githubusercontent.com/u/58730831?v=4"
+                  class="card-img-top rounded-circle mx-auto"
+                  style="width: 60px; height: 60px"
+                  alt="Siddharth Khandelwal"
+                />
+                <h5 class="card-title mt-3">Siddharth Khandelwal</h5>
+              </div>
+              <div class="friend-content" id="friend4">
+                <a
+                  href="https://github.com/khandelwal20sid"
+                  target="_blank"
+                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                  >GitHub Profile</a
+                >
+              </div>
+            </div>
+
+            <!-- Chinmay Ingale -->
+            <div class="col-sm-4 mb-4">
+              <div class="friend-card collapsed" data-target="#friend5">
+                <img
+                  src="https://avatars.githubusercontent.com/u/143017442?v=4"
+                  class="card-img-top rounded-circle mx-auto"
+                  style="width: 60px; height: 60px"
+                  alt="Chinmay Ingale"
+                />
+                <h5 class="card-title mt-3">Chinmay Ingale</h5>
+              </div>
+              <div class="friend-content" id="friend5">
+                <a
+                  href="https://github.com/IngaleChinmay04"
+                  target="_blank"
+                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                  >GitHub Profile</a
+                >
+              </div>
+            </div>
+
+            <!-- vatsaljain-hub -->
+            <div class="col-sm-4 mb-4">
+              <div class="friend-card collapsed" data-target="#friend6">
+                <img
+                  src="https://avatars.githubusercontent.com/u/60287913?v=4"
+                  class="card-img-top rounded-circle mx-auto"
+                  style="width: 60px; height: 60px"
+                  alt="vatsaljain-hub"
+                />
+                <h5 class="card-title mt-3">vatsaljain-hub</h5>
+              </div>
+              <div class="friend-content" id="friend6">
+                <a
+                  href="https://github.com/vatsaljain-hub"
+                  target="_blank"
+                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                  >GitHub Profile</a
+                >
+              </div>
+            </div>
+
+            <!-- Shalom Riona Fernandes -->
+            <div class="col-sm-4 mb-4">
+              <div class="friend-card collapsed" data-target="#friend7">
+                <img
+                  src="https://avatars.githubusercontent.com/u/132253795?v=4"
+                  class="card-img-top rounded-circle mx-auto"
+                  style="width: 60px; height: 60px"
+                  alt="Shalom Riona Fernandes"
+                />
+                <h5 class="card-title mt-3">Shalom Fernandes</h5>
+              </div>
+              <div class="friend-content" id="friend7">
+                <a
+                  href="https://github.com/shalomrionafernandes"
+                  target="_blank"
+                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                  >GitHub Profile</a
+                >
+              </div>
+            </div>
+
+            <!-- Thilak Jo -->
+            <div class="col-sm-4 mb-4">
+              <div class="friend-card collapsed" data-target="#friend8">
+                <img
+                  src="https://avatars.githubusercontent.com/u/115476524?v=4"
+                  class="card-img-top rounded-circle mx-auto"
+                  style="width: 60px; height: 60px"
+                  alt="Thilak Jo"
+                />
+                <h5 class="card-title mt-3">Thilak Jo</h5>
+              </div>
+              <div class="friend-content" id="friend8">
+                <a
+                  href="https://github.com/thilakjo"
+                  target="_blank"
+                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                  >GitHub Profile</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
 
     <div id="footer-placeholder" class="mt-auto"></div>
 
