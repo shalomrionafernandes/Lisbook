@@ -626,3 +626,39 @@ window.addEventListener("load", function () {
   const loader = document.getElementById("loader");
   loader.classList.add("hidden");
 });
+
+// Navigate to profile page
+document.getElementById("profile-btn").addEventListener("click", function () {
+  window.location.href = "./profile.html";
+});
+
+// Sample structure of audiobooks data stored in localStorage
+const audiobooks = [
+  { id: 1, title: "Pale Blue Dot", progress: 45, timeListened: "1 hr 30 min" },
+  { id: 2, title: "Sapiens", progress: 80, timeListened: "3 hrs" },
+];
+
+// Populate the bookmarks and progress
+document.addEventListener("DOMContentLoaded", () => {
+  const bookmarkedList = document.getElementById("bookmarked-list");
+  const progressTracking = document.getElementById("progress-tracking");
+
+  audiobooks.forEach((book) => {
+    // Add bookmarked books
+    const listItem = document.createElement("li");
+    listItem.textContent = book.title;
+    bookmarkedList.appendChild(listItem);
+
+    // Add live tracking
+    const progressItem = document.createElement("div");
+    progressItem.innerHTML = `
+      <h3>${book.title}</h3>
+      <p>Progress: ${book.progress}%</p>
+      <p>Time Listened: ${book.timeListened}</p>
+      <div class="progress-bar bg-gray-700">
+        <div class="progress-bar bg-green-500" style="width: ${book.progress}%;"></div>
+      </div>
+    `;
+    progressTracking.appendChild(progressItem);
+  });
+});

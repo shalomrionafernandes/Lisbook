@@ -687,3 +687,78 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
 .light-theme #sun-icon {
   display: none; /* Hide sun icon in light theme */
 }
+
+.profile-section {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+#bookmarked-list li {
+  background-color: #121212;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+#progress-tracking div {
+  background-color: #121212;
+  padding: 15px;
+  border-radius: 8px;
+}
+.container {
+  max-width: 1200px; /* or any width you prefer */
+  margin: 0 auto; /* centers the container */
+  padding: 0 1rem; /* optional padding */
+}
+.logo-text {
+  margin-right: auto; /* push logo to the left */
+}
+
+.text-gray-300 {
+  margin: 0 1rem; /* adjust horizontal space between links */
+}
+
+#menu {
+  margin-top: 1rem; /* if needed to create space above the menu */
+}
+@media (max-width: 768px) {
+  #menu {
+    /* Adjust styles for mobile if needed */
+  }
+}
+#menu {
+  display: flex;
+  align-items: center; /* vertically center items */
+}
+
+.text-gray-300 {
+  margin-right: 1rem; /* space between menu items */
+}
+
+#theme-toggle,
+#profile-btn {
+  margin-left: 1rem; /* space between buttons and menu items */
+}
+
+/* Profile button icon */
+#profile-btn i {
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover effect on profile icon only */
+#profile-btn:hover i {
+  color: #1db954; /* Change to green on hover */
+}
+
+/* Ensure the button itself does not change color */
+#profile-btn {
+  background-color: transparent; /* Keep button background transparent */
+  border: none; /* No border for the button */
+  cursor: pointer; /* Show pointer on hover */
+}
+
+/* Other existing styles */
+.text-gray-300 {
+  color: #d1d1d1;
+}
